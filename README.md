@@ -89,6 +89,12 @@ think---questions, suggestions, and criticisms are all welcome.
   rather not have any external dependencies... outside the JIRA API, of course.
 * Suport OAuth.
 * Support JIRA REST v3.
+* Add the ability to write to the API, not just read.
+* Add more resources (e.g. versions).
+
+## Help and Docs
+
+* https://developer.atlassian.com/cloud/jira/platform/rest/v2/
 
 ## Contributing
 
