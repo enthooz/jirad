@@ -2,19 +2,20 @@
 
 # TODO: use HTTParty in Jirad::Client
 
+# Top namespace.  Provides easy access to client.
 module Jirad
-  @@client = nil
+  @client = nil
 
   def self.client
-    return @@client unless @@client.nil?
+    return @client unless @client.nil?
 
     options = {
       username: ENV['JIRA_USERNAME'],
       password: ENV['JIRA_PASSWORD'],
-      site: ENV['JIRA_SITE']
+      site:     ENV['JIRA_SITE']
     }
 
-    @@client = Jirad::Client.new(options)
+    @client = Jirad::Client.new(options)
   end
 end
 

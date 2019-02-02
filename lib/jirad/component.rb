@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
-class Jirad::Component < Jirad::BaseModel
-  attribute :name
-  alias to_s name
+module Jirad
+  # Model for components.
+  class Component < BaseModel
+    attribute :name
+    alias to_s name
+  end
 end

@@ -1,9 +1,13 @@
 # frozen_string_literal: true
 
-class Jirad::IssueLink < Jirad::BaseModel
-  attribute :type, key: 'name'  # e.g. "Block"
-  attribute :inward             # e.g. "blocks"
-  attribute :outward            # e.g. "is blocked by"
-  attribute :issue, key: 'outwardIssue', type: Jirad::BaseIssue
-  # TODO: there may be an inwardIssue
+module Jirad
+  # Model for issue links.
+  class IssueLink < BaseModel
+    attribute :type, key: 'name'  # e.g. "Duplicate"
+    attribute :inward             # e.g. "duplicated by"
+    attribute :outward            # e.g. "duplicates"
+    attribute :outward_issue, key: 'outwardIssue', type: Jirad::BaseIssue
+    attribute :inward_issue,  key: 'inwardIssue',  type: Jirad::BaseIssue
+    # TODO: there may be an inwardIssue
+  end
 end

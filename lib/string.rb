@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Adds helpful methods to standard `String` class.
 class String
   def symbolize
     return self unless /[A-Z\s-]/.match?(self)
