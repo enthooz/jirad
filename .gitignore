@@ -13,6 +13,9 @@
 # Used by dotenv library to load environment variables.
 .envrc
 
+# rspec failure tracking
+.rspec_status
+
 ## Specific to RubyMotion:
 .dat*
 .repl_history
