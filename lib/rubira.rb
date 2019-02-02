@@ -21,6 +21,7 @@ end
 
 require 'httparty'
 require 'string'
+require 'rubira/version'
 require 'rubira/timestamp'
 require 'rubira/base_model'
 require 'rubira/change'
