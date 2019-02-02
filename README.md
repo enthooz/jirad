@@ -50,13 +50,13 @@ like this at the top:
 ```ruby
   attribute :id
   attribute :key
-  attribute :summary,     key: [ 'fields', 'summary' ]
-  attribute :description, key: [ 'fields', 'description' ]
-  attribute :summary,     key: [ 'fields', 'summary' ]
-  attribute :summary,     key: [ 'fields', 'summary' ]
-  attribute :type,        key: [ 'fields', 'issuetype' ], type: Rubira::IssueType
-  attribute :status,      key: [ 'fields', 'status' ],    type: Rubira::IssueStatus
-  attribute :priority,    key: [ 'fields', 'priority' ],  type: Rubira::Priority
+  attribute :summary,     key: %w[fields summary]
+  attribute :description, key: %w[fields description]
+  attribute :summary,     key: %w[fields summary]
+  attribute :summary,     key: %w[fields summary]
+  attribute :type,        key: %w[fields issuetype], type: Rubira::IssueType
+  attribute :status,      key: %w[fields status],    type: Rubira::IssueStatus
+  attribute :priority,    key: %w[fields priority],  type: Rubira::Priority
 ```
 
 Each of those are attributes that can be accessed on instances of `Rubira::BaseIssue`.
@@ -64,12 +64,12 @@ Note, that typically, issues are of type `Rubira::Issue`, which extends
 `Rubira::BaseIssue` and adds on the following attributes:
 
 ```ruby
-  person :reporter,        key: [ 'fields', 'creator' ]
-  person :assignee,        key: [ 'fields', 'assignee' ]
-  collection :components,  key: [ 'fields', 'components' ], type: Rubira::Component
-  collection :issue_links, key: [ 'fields', 'issuelinks' ], type: Rubira::IssueLink
-  timestamp :created,      key: [ 'fields', 'created' ]
-  timestamp :updated,      key: [ 'fields', 'updated' ]
+    person     :reporter,    key: %w[fields creator]
+    person     :assignee,    key: %w[fields assignee]
+    collection :components,  key: %w[fields components], type: Rubira::Component
+    collection :issue_links, key: %w[fields issuelinks], type: Rubira::IssueLink
+    timestamp  :created,     key: %w[fields created]
+    timestamp  :updated,     key: %w[fields updated]
 ```
 
 Here you can see three new types of attributes:

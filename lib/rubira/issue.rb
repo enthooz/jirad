@@ -3,12 +3,12 @@
 module Rubira
   # Model for issues.
   class Issue < BaseIssue
-    person :reporter,        key: %w[fields creator]
-    person :assignee,        key: %w[fields assignee]
+    person     :reporter,    key: %w[fields creator]
+    person     :assignee,    key: %w[fields assignee]
     collection :components,  key: %w[fields components], type: Rubira::Component
     collection :issue_links, key: %w[fields issuelinks], type: Rubira::IssueLink
-    timestamp :created,      key: %w[fields created]
-    timestamp :updated,      key: %w[fields updated]
+    timestamp  :created,     key: %w[fields created]
+    timestamp  :updated,     key: %w[fields updated]
 
     class << self
       def search(jql)
