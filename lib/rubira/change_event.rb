@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-module Jirad
+module Rubira
   # Model for changes within change logs.  Used by `Issue#change_log`.
   class ChangeEvent < BaseModel
     person     :author
     timestamp  :timestamp
-    collection :changes, type: Jirad::Change, key: 'items'
+    collection :changes, type: Rubira::Change, key: 'items'
   end
 end

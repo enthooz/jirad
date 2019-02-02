@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Jirad
+module Rubira
   # Model for users.
   class Person < BaseModel
     attribute :name

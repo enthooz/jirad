@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Jirad
+module Rubira
   # Used to handle HTTP requests to the JIRA REST API.
   class Client
     # TODO: use Net::HTTP
@@ -25,7 +25,7 @@ module Jirad
     def paginate(path, options = {}, limit = 1000)
       options = build_pagination_options(options)
       while pagination_total(options) <= limit
-        response = Jirad.client.get(path, options)
+        response = Rubira.client.get(path, options)
         yield response
         options[:query][:startAt] = pagination_total(options)
         break if options[:query][:startAt] >= response['total']

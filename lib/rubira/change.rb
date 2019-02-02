@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Jirad
+module Rubira
   # Model for changes within change logs.  Used within `ChangeEvent`.
   class Change < BaseModel
     # Other attributes: fieldtype, fieldId, from, to

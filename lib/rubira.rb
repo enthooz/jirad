@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-# TODO: use HTTParty in Jirad::Client
+# TODO: use HTTParty in Rubira::Client
 
 # Top namespace.  Provides easy access to client.
-module Jirad
+module Rubira
   @client = nil
 
   def self.client
@@ -15,24 +15,24 @@ module Jirad
       site:     ENV['JIRA_SITE']
     }
 
-    @client = Jirad::Client.new(options)
+    @client = Rubira::Client.new(options)
   end
 end
 
 require 'httparty'
 require 'string'
-require 'jirad/timestamp'
-require 'jirad/base_model'
-require 'jirad/change'
-require 'jirad/client'
-require 'jirad/person'
-require 'jirad/issue_type'
-require 'jirad/issue_status'
-require 'jirad/priority'
-require 'jirad/component'
-require 'jirad/change_event'
-require 'jirad/comment'
-require 'jirad/work_event'
-require 'jirad/base_issue'
-require 'jirad/issue_link'
-require 'jirad/issue'
+require 'rubira/timestamp'
+require 'rubira/base_model'
+require 'rubira/change'
+require 'rubira/client'
+require 'rubira/person'
+require 'rubira/issue_type'
+require 'rubira/issue_status'
+require 'rubira/priority'
+require 'rubira/component'
+require 'rubira/change_event'
+require 'rubira/comment'
+require 'rubira/work_event'
+require 'rubira/base_issue'
+require 'rubira/issue_link'
+require 'rubira/issue'

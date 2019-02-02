@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Jirad
+module Rubira
   # Model for work events returned within worklogs.  Used by `Issue#work_log`.
   class WorkEvent < BaseModel
     attribute :comment

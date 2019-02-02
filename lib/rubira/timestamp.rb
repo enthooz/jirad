@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Jirad
+module Rubira
   # Model for timestamps.  Mostly just provides `#to_s`.
   class Timestamp < DateTime
     def new(time_string)

@@ -1,10 +1,10 @@
-# jirad
+# rubira
 Rubyesque interaction with the JIRA API.
 
 ## Install
 
 ```
-gem install jirad
+gem install rubira
 ```
 
 Ok, so it's not gemified yet... but soon!  :)
@@ -22,17 +22,17 @@ Set these environment variables using something like [direnv](https://direnv.net
 
 ```ruby
 
-require 'jirad'
+require 'rubira'
 
 jql = "project = RAD AND updatedDate >= -1d"
 
 # Use a block to print out a list of issues.
-Jirad::Issue.search(jql).each do |issue|
+Rubira::Issue.search(jql).each do |issue|
   puts "#{issue.key}: #{issue.summary}"
 end
 
 # Store an array of issues.
-issues = Jirad::Issue.search(jql)
+issues = Rubira::Issue.search(jql)
 
 # Print out a list of comments.
 issues.first.comments.each do |comment|
@@ -44,7 +44,7 @@ end
 
 The code is meant to be self-documenting... and I really mean that.
 
-For example, if you open up `lib/jirad/base_issue.rb`, you'll see something
+For example, if you open up `lib/rubira/base_issue.rb`, you'll see something
 like this at the top:
 
 ```ruby
@@ -54,28 +54,28 @@ like this at the top:
   attribute :description, key: [ 'fields', 'description' ]
   attribute :summary,     key: [ 'fields', 'summary' ]
   attribute :summary,     key: [ 'fields', 'summary' ]
-  attribute :type,        key: [ 'fields', 'issuetype' ], type: Jirad::IssueType
-  attribute :status,      key: [ 'fields', 'status' ],    type: Jirad::IssueStatus
-  attribute :priority,    key: [ 'fields', 'priority' ],  type: Jirad::Priority
+  attribute :type,        key: [ 'fields', 'issuetype' ], type: Rubira::IssueType
+  attribute :status,      key: [ 'fields', 'status' ],    type: Rubira::IssueStatus
+  attribute :priority,    key: [ 'fields', 'priority' ],  type: Rubira::Priority
 ```
 
-Each of those are attributes that can be accessed on instances of `Jirad::BaseIssue`.
-Note, that typically, issues are of type `Jirad::Issue`, which extends
-`Jirad::BaseIssue` and adds on the following attributes:
+Each of those are attributes that can be accessed on instances of `Rubira::BaseIssue`.
+Note, that typically, issues are of type `Rubira::Issue`, which extends
+`Rubira::BaseIssue` and adds on the following attributes:
 
 ```ruby
   person :reporter,        key: [ 'fields', 'creator' ]
   person :assignee,        key: [ 'fields', 'assignee' ]
-  collection :components,  key: [ 'fields', 'components' ], type: Jirad::Component
-  collection :issue_links, key: [ 'fields', 'issuelinks' ], type: Jirad::IssueLink
+  collection :components,  key: [ 'fields', 'components' ], type: Rubira::Component
+  collection :issue_links, key: [ 'fields', 'issuelinks' ], type: Rubira::IssueLink
   timestamp :created,      key: [ 'fields', 'created' ]
   timestamp :updated,      key: [ 'fields', 'updated' ]
 ```
 
 Here you can see three new types of attributes:
-* `person` creates attributes of the type `Jirad::Person`
-* `collection` creates an array of the type specified, e.g. `Jirad::Component`
-* `timestamp` creates attributes of the type `Jirad::Timestamp` (which is
+* `person` creates attributes of the type `Rubira::Person`
+* `collection` creates an array of the type specified, e.g. `Rubira::Component`
+* `timestamp` creates attributes of the type `Rubira::Timestamp` (which is
   essentially `DateTime`)
 
 Please wonder around the code a bit and let me know what you

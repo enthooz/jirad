@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Jirad
+module Rubira
   # Model for "basic issues" returned from JIRA API.  This model was initially
   # designed to support issues returned as "linked issues" within other
   # issues.  In this case, the "linked issues" only contain a subset of the
@@ -15,13 +15,13 @@ module Jirad
     attribute :description, key: %w[fields description]
     attribute :summary,     key: %w[fields summary]
     attribute :summary,     key: %w[fields summary]
-    attribute :type,        key: %w[fields issuetype], type: Jirad::IssueType
-    attribute :status,      key: %w[fields status],    type: Jirad::IssueStatus
-    attribute :priority,    key: %w[fields priority],  type: Jirad::Priority
+    attribute :type,        key: %w[fields issuetype], type: Rubira::IssueType
+    attribute :status,      key: %w[fields status],    type: Rubira::IssueStatus
+    attribute :priority,    key: %w[fields priority],  type: Rubira::Priority
 
     def initialize(issue)
       super
-      @client = Jirad.client
+      @client = Rubira.client
     end
 
     def field(field_name)

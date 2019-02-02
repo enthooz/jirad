@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Jirad
+module Rubira
   # Provides syntactic sugar for quickly defining Extend this class when
   # creating models.
   class BaseModel
@@ -12,11 +12,11 @@ module Jirad
       protected
 
       def person(attribute, key: nil)
-        instantiated_attribute(attribute, key, Jirad::Person)
+        instantiated_attribute(attribute, key, Rubira::Person)
       end
 
       def timestamp(attribute, key: nil)
-        instantiated_attribute(attribute, key, Jirad::Timestamp, :parse)
+        instantiated_attribute(attribute, key, Rubira::Timestamp, :parse)
       end
 
       def attribute(attribute, key: nil, type: nil)

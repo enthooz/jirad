@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Jirad
+module Rubira
   # Model for issue comments.  Used by `Issue#comments`.
   class Comment < BaseModel
     person :update_author, key: 'updateAuthor'
