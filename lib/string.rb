@@ -1,9 +1,12 @@
+# frozen_string_literal: true
+
 class String
   def symbolize
     return self unless /[A-Z\s-]/.match?(self)
-    word = self.gsub(/[^a-z0-9\s]/i, ''.freeze)
-    word.gsub!(/\s+/, '_'.freeze)
-    word.tr!("-".freeze, "_".freeze)
+
+    word = gsub(/[^a-z0-9\s]/i, '')
+    word.gsub!(/\s+/, '_')
+    word.tr!('-', '_')
     word.downcase!
     word.to_sym
   end

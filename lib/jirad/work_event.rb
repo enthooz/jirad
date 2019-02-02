@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Jirad::WorkEvent < Jirad::BaseModel
   attribute :comment
   person    :author

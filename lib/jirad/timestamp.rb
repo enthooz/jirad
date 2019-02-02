@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class Jirad::Timestamp < DateTime
   def new(time_string)
-    self.parse(time_string)
+    parse(time_string)
   end
 
   def to_s

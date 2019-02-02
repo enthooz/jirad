@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Jirad::BaseModel
   def initialize(hash)
     @hash = hash
@@ -44,7 +46,7 @@ class Jirad::BaseModel
       else
         value = @hash.dig(*key)
         object = nil
-        if !value.nil?
+        unless value.nil?
           constructor ||= :new
           object = type.send(constructor, value)
         end
@@ -64,5 +66,4 @@ class Jirad::BaseModel
       end
     end
   end
-
 end

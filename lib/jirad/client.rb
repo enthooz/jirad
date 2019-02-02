@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Jirad::Client
   # TODO: use Net::HTTP
   include HTTParty
@@ -11,7 +13,7 @@ class Jirad::Client
   end
 
   # TODO: better error handling
-  def get(path, options={})
+  def get(path, options = {})
     options = build_options(options)
     url     = build_url(path)
     response = self.class.get(url, options)
@@ -20,12 +22,11 @@ class Jirad::Client
 
   protected
 
-  def build_options(options={})
-    options.merge({ basic_auth: @auth })
+  def build_options(options = {})
+    options.merge(basic_auth: @auth)
   end
 
   def build_url(path)
     "#{@options[:site]}/rest/api/2/#{path}"
   end
-
 end

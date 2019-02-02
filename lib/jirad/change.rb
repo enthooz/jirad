@@ -1,5 +1,6 @@
-class Jirad::Change < Jirad::BaseModel
+# frozen_string_literal: true
 
+class Jirad::Change < Jirad::BaseModel
   # Other attributes: fieldtype, fieldId, from, to
   attribute :field
   attribute :from, key: 'fromString'
@@ -9,5 +10,4 @@ class Jirad::Change < Jirad::BaseModel
     super
     raise 'found change event with more than one item' unless @hash['items'].count <= 1
   end
-
 end

@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 class Jirad::IssueStatus < Jirad::BaseModel
   attribute :name
-  attribute :category, key: [ 'statusCategory', 'name' ]
+  attribute :category, key: %w[statusCategory name]
 
   # TODO: make StatusCategory model
 
-  alias_method :to_s, :name
+  alias to_s name
 
   def is?(symbol)
     name.to_sym == symbol

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Jirad::Person < Jirad::BaseModel
   attribute :name
   attribute :key
@@ -7,7 +9,7 @@ class Jirad::Person < Jirad::BaseModel
   attribute :is_active?, key: 'active'
   attribute :timezone, key: 'timeZone'
 
-  alias_method :to_s, :display_name
+  alias to_s display_name
 
   # Attributes in hash:
   # - self (uri)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # TODO: use HTTParty in Jirad::Client
 
 module Jirad
@@ -7,14 +9,13 @@ module Jirad
     return @@client unless @@client.nil?
 
     options = {
-      :username     => ENV['JIRA_USERNAME'],
-      :password     => ENV['JIRA_PASSWORD'],
-      :site         => ENV['JIRA_SITE'],
+      username: ENV['JIRA_USERNAME'],
+      password: ENV['JIRA_PASSWORD'],
+      site: ENV['JIRA_SITE']
     }
 
     @@client = Jirad::Client.new(options)
   end
-
 end
 
 require 'httparty'
