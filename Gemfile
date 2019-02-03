@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gemspec
 
 group :development, optional: true do
+  gem 'awesome_print'
   gem 'rubocop'
   gem 'rubocop-rspec'
-  gem 'awesome_print'
 end

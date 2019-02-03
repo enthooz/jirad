@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'pathname'
+
 # TODO: use HTTParty in Rubira::Client
 
 # Top namespace.  Provides easy access to client.
@@ -16,6 +18,10 @@ module Rubira
     }
 
     @client = Rubira::Client.new(options)
+  end
+
+  def self.root
+    @root ||= Pathname.new(File.dirname(__dir__))
   end
 end
 
