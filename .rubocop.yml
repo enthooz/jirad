@@ -1,6 +1,11 @@
+require: rubocop-rspec
+
 AllCops:
   Exclude:
     - 'bin/**/*'
+  RSpec:
+    Patterns:
+    - '_spec.rb$'
 
 Layout/AlignHash:
   EnforcedColonStyle: table

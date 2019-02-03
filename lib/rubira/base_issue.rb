@@ -13,8 +13,6 @@ module Rubira
     attribute :key
     attribute :summary,     key: %w[fields summary]
     attribute :description, key: %w[fields description]
-    attribute :summary,     key: %w[fields summary]
-    attribute :summary,     key: %w[fields summary]
     attribute :type,        key: %w[fields issuetype], type: Rubira::IssueType
     attribute :status,      key: %w[fields status],    type: Rubira::IssueStatus
     attribute :priority,    key: %w[fields priority],  type: Rubira::Priority

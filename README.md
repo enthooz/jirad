@@ -1,4 +1,4 @@
-# rubira
+# Rubira
 Rubyesque interaction with the JIRA API.
 
 ## Install
@@ -78,7 +78,7 @@ Here you can see three new types of attributes:
 * `timestamp` creates attributes of the type `Rubira::Timestamp` (which is
   essentially `DateTime`)
 
-Please wonder around the code a bit and let me know what you
+Please wander around the code a bit and let me know what you
 think---questions, suggestions, and criticisms are all welcome.
 
 ## TODO
@@ -93,6 +93,15 @@ think---questions, suggestions, and criticisms are all welcome.
 * Support JIRA REST v3.
 * Add the ability to write to the API, not just read.
 * Add more resources (e.g. versions).
+
+## Why the name "Rubira"?
+
+* Ruby + JIRA = Rubira
+* Etymology of JIRA is from "gojira" which is the Japanese word for
+  "Godzilla".
+* The name Rubira is also based off the name of a "giant lobster" monster
+  named [Ebirah](https://en.wikipedia.org/wiki/Ebirah) that Godzilla fought.
+  Lobsters are red.  Rubies are red.  It's perfect!
 
 ## Help and Docs
 
