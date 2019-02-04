@@ -3,7 +3,7 @@
 module Rubira
   # Model for issue links.
   class IssueLink < BaseModel
-    attribute :type, key: 'name'  # e.g. "Duplicate"
+    attribute :type, key: %w[type name] # e.g. "Duplicate"
     attribute :inward             # e.g. "duplicated by"
     attribute :outward            # e.g. "duplicates"
     attribute :outward_issue, key: 'outwardIssue', type: Rubira::BaseIssue

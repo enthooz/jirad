@@ -12,6 +12,12 @@ module Rubira
       self.class.attributes
     end
 
+    private
+
+    def get(key)
+      @hash.dig(*key)
+    end
+
     class << self
       def attributes
         @attributes ||= []
@@ -28,14 +34,12 @@ module Rubira
       end
 
       def attribute(attribute, key: nil, type: nil)
+        return instantiated_attribute(attribute, key, type) unless type.nil?
+
         add_attribute(attribute)
         key = attribute.to_s if key.nil?
-        if type.nil?
-          define_method attribute do
-            @hash.dig(*key)
-          end
-        else
-          instantiated_attribute(attribute, key, type)
+        define_method(attribute) do
+          get(key)
         end
       end
 
@@ -62,7 +66,7 @@ module Rubira
           return instance_variable_get(var_name) if
             instance_variable_defined?(var_name)
 
-          object = @hash.dig(*key)
+          object = get(key)
           object = type.send(constructor, object) unless object.nil?
           instance_variable_set(var_name, object)
         end
@@ -76,9 +80,7 @@ module Rubira
           return instance_variable_get(var_name) if
             instance_variable_defined?(var_name)
 
-          collection = @hash.dig(*key).collect do |item|
-            type.send(constructor, item)
-          end
+          collection = get(key).collect { |item| type.send(constructor, item) }
           instance_variable_set(var_name, collection)
         end
       end
