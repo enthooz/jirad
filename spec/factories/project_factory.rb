@@ -7,16 +7,16 @@ FactoryHelper.define(:project) do
 
   # rubocop:disable Metrics/LineLength
   {
-    "self"           => "https://#{site}.atlassian.net/rest/api/2/project/#{id}",
-    "id"             => "#{id}",
-    "key"            => "RAD",
-    "name"           => "Really Awesome Device",
-    "projectTypeKey" => "software",
-    "avatarUrls" => {
-      "48x48" => "https://#{site}.atlassian.net/secure/projectavatar?avatarId=#{number}",
-      "24x24" => "https://#{site}.atlassian.net/secure/projectavatar?size=small&avatarId=#{number}",
-      "16x16" => "https://#{site}.atlassian.net/secure/projectavatar?size=xsmall&avatarId=#{number}",
-      "32x32" => "https://#{site}.atlassian.net/secure/projectavatar?size=medium&avatarId=#{number}"
+    'self'           => "https://#{site}.atlassian.net/rest/api/2/project/#{id}",
+    'id'             => id.to_s,
+    'key'            => 'RAD',
+    'name'           => 'Really Awesome Device',
+    'projectTypeKey' => 'software',
+    'avatarUrls'     => {
+      '48x48' => "https://#{site}.atlassian.net/secure/projectavatar?avatarId=#{number}",
+      '24x24' => "https://#{site}.atlassian.net/secure/projectavatar?size=small&avatarId=#{number}",
+      '16x16' => "https://#{site}.atlassian.net/secure/projectavatar?size=xsmall&avatarId=#{number}",
+      '32x32' => "https://#{site}.atlassian.net/secure/projectavatar?size=medium&avatarId=#{number}"
     }
   }
   # rubocop:enable Metrics/LineLength

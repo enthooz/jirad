@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 RSpec.describe Rubira::Issue do
+  let(:issue_hash) { build(:issue) }
+
   it_behaves_like 'a basic issue'
   it_behaves_like 'an issue with basic associations'
-
-  let(:issue_hash) { build(:issue) }
 
   context 'with issue hash' do
     subject(:issue) { described_class.new(issue_hash) }
@@ -14,11 +14,7 @@ RSpec.describe Rubira::Issue do
     end
 
     it 'sets assignee' do
-      if issue_hash['fields']['assignee'].nil?
-        expect(issue.assignee).to be_nil
-      else
-        expect(issue.assignee).to be_an_instance_of(Rubira::Person)
-      end
+      expect(issue.assignee).to be_an_instance_of(Rubira::Person)
     end
 
     it 'sets components' do
