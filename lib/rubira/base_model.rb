@@ -8,7 +8,15 @@ module Rubira
       @hash = hash
     end
 
+    def attributes
+      self.class.attributes
+    end
+
     class << self
+      def attributes
+        @attributes ||= []
+      end
+
       protected
 
       def person(attribute, key: nil)
@@ -20,6 +28,7 @@ module Rubira
       end
 
       def attribute(attribute, key: nil, type: nil)
+        add_attribute(attribute)
         key = attribute.to_s if key.nil?
         if type.nil?
           define_method attribute do
@@ -39,8 +48,14 @@ module Rubira
 
       private
 
+      def add_attribute(attribute)
+        @attributes ||= []
+        @attributes << attribute unless @attributes.include?(attribute)
+      end
+
       # TODO: consolidate `instantiated_attribute` and `instantiated_collection`
       def instantiated_attribute(attribute, key, type, constructor = :new)
+        add_attribute(attribute)
         var_name = :"@#{attribute.to_s}"
         define_method(attribute) do
           return instance_variable_get(var_name) if
@@ -53,6 +68,7 @@ module Rubira
       end
 
       def instantiated_collection(attribute, key, type, constructor = :new)
+        add_attribute(attribute)
         var_name = :"@#{attribute.to_s}"
         define_method(attribute) do
           return instance_variable_get(var_name) if

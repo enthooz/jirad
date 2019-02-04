@@ -21,6 +21,10 @@ module FactoryHelper
     @factories[name].build
   end
 
+  def self.clear_factories!
+    @factories = {}
+  end
+
   def build(name)
     FactoryHelper.build_from(name)
   end
