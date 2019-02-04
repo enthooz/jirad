@@ -57,6 +57,7 @@ module Rubira
       def instantiated_attribute(attribute, key, type, constructor = :new)
         add_attribute(attribute)
         var_name = :"@#{attribute.to_s}"
+        key = attribute.to_s if key.nil?
         define_method(attribute) do
           return instance_variable_get(var_name) if
             instance_variable_defined?(var_name)
@@ -70,6 +71,7 @@ module Rubira
       def instantiated_collection(attribute, key, type, constructor = :new)
         add_attribute(attribute)
         var_name = :"@#{attribute.to_s}"
+        key = attribute.to_s if key.nil?
         define_method(attribute) do
           return instance_variable_get(var_name) if
             instance_variable_defined?(var_name)

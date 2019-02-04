@@ -4,7 +4,7 @@ module Rubira
   # Model for changes within change logs.  Used by `Issue#change_log`.
   class ChangeEvent < BaseModel
     person     :author
-    timestamp  :timestamp
+    timestamp  :timestamp, key: 'created'
     collection :changes, type: Rubira::Change, key: 'items'
   end
 end
