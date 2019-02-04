@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Rubira::BaseIssue do
+RSpec.shared_examples 'an issue with basic associations' do
   let(:base_issue_hash) { build(:base_issue) }
 
   context 'with base issue hash (associations)' do
