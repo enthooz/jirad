@@ -83,16 +83,15 @@ think---questions, suggestions, and criticisms are all welcome.
 
 ## TODO
 
-* Add rubocop.
-* Add testing... (this is embarassing, but you can rest assured I will do this
-  VERY soon)
-* Add CI.
-* Switch from `HTTParty` to `Net::HTTP`.  As much as I love `HTTParty`, I'd
+- [x] Add rubocop.
+- [ ] Add testing.  (This is in progress.)
+- [ ] Add CI.
+- [ ] Switch from `HTTParty` to `Net::HTTP`.  As much as I love `HTTParty`, I'd
   rather not have any external dependencies... outside the JIRA API, of course.
-* Suport OAuth.
-* Support JIRA REST v3.
-* Add the ability to write to the API, not just read.
-* Add more resources (e.g. versions).
+- [ ] Suport OAuth.
+- [ ] Support JIRA REST v3.
+- [ ] Add the ability to write to the API, not just read.
+- [ ] Add more resources (e.g. versions).
 
 ## Why the name "Rubira"?
 
@@ -111,5 +110,5 @@ think---questions, suggestions, and criticisms are all welcome.
 
 * Fork the project.
 * Add your magic.
-* (I'd say to add tests... but I haven't even added tests yet.)
+* Add tests.
 * Send me a pull request.
