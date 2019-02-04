@@ -24,20 +24,20 @@ module Rubira
     end
 
     def change_log
-      get('changelog', 'values', Rubira::ChangeEvent)
+      http_get('changelog', 'values', Rubira::ChangeEvent)
     end
 
     def comments
-      get('comment', 'comments', Rubira::Comment)
+      http_get('comment', 'comments', Rubira::Comment)
     end
 
     def work_log
-      get('worklog', 'worklogs', Rubira::WorkEvent)
+      http_get('worklog', 'worklogs', Rubira::WorkEvent)
     end
 
     protected
 
-    def get(path, key, klass)
+    def http_get(path, key, klass)
       response = Rubira.client.get("issue/#{id}/#{path}")
       response[key].collect { |event| klass.new(event) }
     end
